@@ -7,15 +7,36 @@ class Thock < Formula
 
   def install
     prefix.install "Thock.app"
+
+    # Create a CLI wrapper to launch the app with `thock`
+    (bin/"thock").write <<~EOS
+      #!/bin/bash
+      if [[ "$1" == "--install" ]]; then
+        echo "Moving Thock.app to /Applications..."
+        mv "#{opt_prefix}/Thock.app" /Applications/Thock.app && \
+        echo "Done! You can now launch it from Spotlight or Launchpad."
+      else
+        open "#{opt_prefix}/Thock.app"
+      fi
+    EOS
   end
 
   def caveats
     <<~EOS
-      To use Thock, move it to your /Applications folder:
-        mv #{opt_prefix}/Thock.app /Applications
+	Thock is installed!
 
-      Since this app is unsigned, macOS might block it.
-      To open it, right-click → Open once, then it will work as usual.
+	To launch the app:
+	  thock
+
+	To move it to your Applications folder:
+      thock --install
+    
+    Or use:
+      mv #{opt_prefix}/Thock.app /Applications
+	
+	The app is unsigned and macOS may block it the first time.
+	1. Move it to /Applications
+	2. Right-click it in Finder -> Open once
     EOS
   end
 end
