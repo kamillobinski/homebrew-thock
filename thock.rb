@@ -12,9 +12,11 @@ class Thock < Formula
     (bin/"thock").write <<~EOS
       #!/bin/bash
       if [[ "$1" == "--install" ]]; then
-        echo "Moving Thock.app to /Applications..."
-        mv "#{opt_prefix}/Thock.app" /Applications/Thock.app && \
+        echo "Copying Thock.app to /Applications..."
+        cp -R "#{opt_prefix}/Thock.app" /Applications/Thock.app && \
         echo "Done! You can now launch it from Spotlight or Launchpad."
+      elif [[ "$1" == "--version" ]]; then
+        echo "Thock version #{version}"
       else
         open "#{opt_prefix}/Thock.app"
       fi
@@ -29,10 +31,10 @@ class Thock < Formula
 	  thock
 
 	To move it to your Applications folder:
-      thock --install
+    thock --install
     
     Or use:
-      mv #{opt_prefix}/Thock.app /Applications
+    mv #{opt_prefix}/Thock.app /Applications
 	
 	The app is unsigned and macOS may block it the first time.
 	1. Move it to /Applications
