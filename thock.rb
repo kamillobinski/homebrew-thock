@@ -1,14 +1,15 @@
 class Thock < Formula
   desc "Thock your mac keyboard"
   homepage "https://github.com/kamillobinski/thock"
-  url "https://github.com/kamillobinski/thock/releases/download/1.10.0/Thock-1.10.0.zip"
-  sha256 "1ca3786ab104d4e9804df320b9c1d9a7dc5f635a5d7841dcb9cde1abfabc7ea7"
-  version "1.10.0"
+  url "https://github.com/kamillobinski/thock/releases/download/1.11.0/Thock-1.11.0.zip"
+  sha256 "7a8e86eac155b31ac6f139af6adf40d4b8a7f7a016cfdba137911e18cdd8430b"
+  version "1.11.0"
 
   def install
     prefix.install "Thock.app"
+    bin.install "thock-cli" => "thock-cli"
 
-    # Create a CLI wrapper to launch the app with `thock`
+    # Optional: Keep your launcher CLI
     (bin/"thock").write <<~EOS
       #!/bin/bash
       if [[ "$1" == "--install" ]]; then
@@ -25,20 +26,20 @@ class Thock < Formula
 
   def caveats
     <<~EOS
-	Thock is installed!
+    Thock is installed!
 
-	To launch the app:
-	  thock
+    To launch the app:
+      thock
 
-	To move it to your Applications folder:
-    thock --install
-    
-    Or use:
-    mv #{opt_prefix}/Thock.app /Applications
-	
-	The app is unsigned and macOS may block it the first time.
-	1. Move it to /Applications
-	2. Right-click it in Finder -> Open once
+    To move it to your Applications folder:
+      thock --install
+
+    The app is unsigned and macOS may block it the first time.
+    1. Move it to /Applications
+    2. Right-click it in Finder -> Open once
+
+    CLI also installed as:
+      thock-cli
     EOS
   end
 end
