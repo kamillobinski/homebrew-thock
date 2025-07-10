@@ -1,9 +1,9 @@
 class Thock < Formula
   desc "Thock your mac keyboard"
   homepage "https://github.com/kamillobinski/thock"
-  url "https://github.com/kamillobinski/thock/releases/download/1.13.4/Thock-1.13.4.zip"
-  sha256 "46f8fba398be6eb4e15633bf91b8fa382db3270cb9385d217d0717fc140891ca"
-  version "1.13.4"
+  url "https://github.com/kamillobinski/thock/releases/download/1.14.0/Thock-1.14.0.zip"
+  sha256 "246d9c026bc4c8ff1986326401a60e05402a2d27cd22d4ce886595c6b583fda4"
+  version "1.14.0"
 
   def install
     prefix.install "Thock.app"
