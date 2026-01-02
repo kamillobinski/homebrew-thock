@@ -11,14 +11,9 @@ cask "thock" do
   binary "thock-cli"
 
   caveats <<~EOS
-    Thock has been installed to /Applications/Thock.app
-
     Happy thocking!
 
-    CLI tool installed:
-      thock-cli
-
-    To launch the app:
-      open -a Thock
+    Launch: open -a Thock
+    CLI: thock-cli
   EOS
 end
