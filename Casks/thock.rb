@@ -1,6 +1,6 @@
 cask "thock" do
-  version "1.18.2"
-  sha256 "619eba3e5dcb9b67459b6b2f7fa2d67f06fc89967aa0cf804d28f7636b362819"
+  version "1.18.3"
+  sha256 "97bdef104ce4adb37259e7565500e1963c0870283e509dc0b3e8f9f17b14f1f3"
 
   url "https://github.com/kamillobinski/thock/releases/download/#{version}/Thock-#{version}.zip"
   name "Thock"
