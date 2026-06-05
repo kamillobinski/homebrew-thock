@@ -16,4 +16,10 @@ cask "thock" do
     Launch: open -a Thock
     CLI: thock-cli
   EOS
+  
+  postflight do
+    system_command "xattr",
+      args: ["-cr", "#{appdir}/Thock.app"],
+      sudo: false
+  end
 end
