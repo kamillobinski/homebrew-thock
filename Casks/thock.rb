@@ -10,16 +10,14 @@ cask "thock" do
   app "Thock.app"
   binary "thock-cli"
 
+  postflight_steps do
+    run "xattr", args: ["-cr", "{{appdir}}/Thock.app"]
+  end
+
   caveats <<~EOS
     Happy thocking!
 
     Launch: open -a Thock
     CLI: thock-cli
   EOS
-  
-  postflight do
-    system_command "xattr",
-      args: ["-cr", "#{appdir}/Thock.app"],
-      sudo: false
-  end
 end
