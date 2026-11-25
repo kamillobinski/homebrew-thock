@@ -7,6 +7,8 @@ cask "thock" do
   desc "Thock your mac keyboard"
   homepage "https://github.com/kamillobinski/thock"
 
+  auto_updates true
+
   app "Thock.app"
   binary "thock-cli"
 
